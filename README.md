@@ -17,34 +17,47 @@ Damit die Strasse offen bleiben kann, muss gezeigt werden, dass die jährliche W
 
 # Annahmen & Fragen zur fiktiven Realität
 
-- Alle Steine landen im selben Netz?
-- Mit wie grossen Steinen können wir rechnen?
-- Wie gross ist die Wahrscheinlichkeit, dass ein Stein auf ein Fahrzeug fällt?
+## Vorgehen
+
+1. Wahrscheinlichkeit dass Stein überhaupt auf Strasse gelangt? Bzw. genau auf ein Auto trifft?
+2. Welche Faktoren sind noch relevant? Nach ersten Berechnungen anschauen.
+
+## Allgemein
+
+Relevanz fürs Resultat? Wie gut kann ich diese Wahrscheinlichkeit bestimmen? Relevanz ist aktuell oft noch unklar. Jeder zusätzliche Parameter birgt die Gefahr von Fehler -> Occam's Razor
+
+## Fragen
+
+- Alle Steine landen im selben Netz? -> alle am selben Ort
+- Wie grosse Steine sind zu erwarten? -> Von Daten hochrechnen
+- Wie gross ist die Wahrscheinlichkeit, dass ein Auto genau dann an dem Ort auf der Strasse ist, wenn das Netz reisst? -> Reaktion, Bremsweg, Handy?, Pneu, Witterung, Fahrzeugtyp
 - Wie gross ist die Wahrscheinlichkeit, dass ein Stein auf der Strasse liegen bleibt? -> Wenn das Netz reisst, dann kommen viele Steine auf die Strasse und bleibt dann nicht sowieso einer liegen?
-- Ist die Strasse gerade?
-- Maximale Geschwindigkeit: 60 km/h -> Durchschnittliche Geschwindigkeit?
+- Ist die Strasse gerade? -> unbekannt -> gerade
+- Direkter Treffer: Todeswahrscheinlichkeit höher?
+- Hineinfahren: überlebt?
+- Maximale Geschwindigkeit: 60 km/h -> Verteilung der Geschwindigkeit? -> erst mal mit 60 rechnen und dann schauen wo man im Verhältniss zum Greznwert ist
 - Reaktionszeit des Fahrers? -> 1 Sekunde
 - Gefahr für die die die Steine entfernen?
-- Wie lange dauert das Entfernen eines Steines?
+- Wie lange dauert das Entfernen eines Steines? -> Alle Steine auf einmal
   - Ist die Strasse während dem Entfernen gesperrt?
   - Wird jeder Stein einzeln entfernt oder alle auf einmal? Um welche Uhrzeit?
 - Spielt das Wetter eine Rolle? -> Kommen dann mehr grössere und/oder schnellere Steine?
 - Können Steine in Grössekategorien eingeteilt werden und damit errechnet werden, wie wahrscheinlich es ist, dass ein x-fach grösserer Stein fällt?
-  - 0.1KG, 1KG, 10KG, 100KG, 1000KG, 10000KG, ...
-- Uhrzeit?
+  - 0.1KG, 1KG, 10KG, 100KG, 1000KG, 10000KG, ... -> folgt Verteileung? -> Warum kategorisieren? -> mal Q-Q-Plot machen und schauen was rauskommt -> wie bei wer
+- Uhrzeit? -> EDA verteilung wärend des Tages
 - Sonneneinstrahlung?
 - Wo liegen die Ablösungszonen (eine oberhalb der anderen, nebeneinander)?
-- Wie stabil sind Autos?
-- Was passiert mit den Steinen im Netz, wenn es reisst? Rollen sie auf die Strasse?
+- Wie stabil sind Autos? -> wann geht Netz kaputt? -> irrelevant
+- Was passiert mit den Steinen im Netz, wenn es reisst? Rollen sie auf die Strasse? -> Steine auf Strasse
 - Spielt es eine Rolle wie viele Steine im Netz sind, wenn es reisst? -> Wahrscheinlich nicht, denn wenn das Netz reisst waren es sicher ausreichend Steine um eine Gefahr darzustellen.
 - Mit welcher Aufprallgeschwindigkeit stirbt der Insasse. -> Recherchieren
 - Schlucht auf der anderen Seite der Strasse?
 - Leitplanke? -> Leitplanke behält Steine auf Strasse?
-- Masse ist von Experten geschätzt, aber wie genau?
+- Masse ist von Experten geschätzt, aber wie genau? -> gibt Methoden, relativ aufwändig, wie viel nutz es beim todesfall schätze
 - 2000KG: Total aller Steine im Netz oder einzelner Stein? -> total aller Steine im Netz
-- Verteilung der Autos in einem Tag?
+- Verteilung der Autos in einem Tag? -> haben die Steine eine ungleichmässige Verteilung? -> falls nein muss man es noch anschauen
 - Verteilung der Steine (für alle Variablen)
-- Was ist, wenn es gerissen ist, aber keiner gestorben ist?
+- Was ist, wenn es gerissen ist, aber keiner gestorben ist? -> zusammen anschauen und das annehmen was in der Realität passiere würde
   - Fallen Steine auf die Strasse?
   - Wird aufgeräumt?
   - Wird repariert?
