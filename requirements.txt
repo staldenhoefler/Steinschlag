@@ -3,3 +3,4 @@ pandas~=2.0.0
 scipy~=1.10.1
 matplotlib~=3.7.1
 fitter~=1.5.2
+seaborn
