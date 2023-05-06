@@ -75,3 +75,50 @@ def compare_simulated_to_original(column):
     ax1.set_xlabel(column.name)
     ax1.set_ylabel('Frequency Density')
     ax1.legend()
+    
+
+
+
+def simulate_combined():
+    #simulated zones
+    sim1 = simulate_zone(zone1)
+    simusim1lated1['zone'] = 1
+    sim2 = simulate_zone(zone2)
+    sim2['zone'] = 2
+    sim1.describe()
+
+    # Determine the latest end datetime of the two dataframes
+    max_datetime = min(sim1['datetime'].max(), sim2['datetime'].max())
+
+    # Set the end datetime of both dataframes to be the same
+    sim1 = sim1[sim1['datetime'] <= max_datetime]
+    sim2 = sim2[sim2['datetime'] <= max_datetime]
+
+    # Merge the two dataframes together, sort by datetime, and reset the index
+    simulated_df = pd.concat([sim1, sim2])
+    simulated_df = simulated_df.sort_values('datetime')
+    simulated_df = simulated_df.reset_index(drop=True)
+    
+    # add a column that calculates the cumulative kg already in the net.
+    # first group the data by date
+    grouped_df = simulated_df.groupby(simulated_df['datetime'].dt.date)
+
+    # then calculate the cumulative sum of 'kg' within each group 
+    simulated_df['cumulative_kg'] = grouped_df['kg'].cumsum()
+    # and subtract the 'kg' valueof the new stone to get the weight in the net
+    simulated_df['cumulative_kg'] =  simulated_df['cumulative_kg'] - simulated_df['kg']
+
+    # Add a new column 'breakthrough' and set it to 1 where conditions are met
+    simulated_df['breakthrough'] = 0
+    condition1 = (simulated_df['kj'] > 1000)
+    condition2 = (simulated_df['cumulative_kg'] > 2000) & (simulated_df['kj'] > 500)
+    simulated_df.loc[condition1 | condition2, 'breakthrough'] = 1
+
+    # Calculate days passed
+    first_day = simulated_df['datetime'].min().date()
+    last_day = simulated_df['datetime'].max().date()
+    num_days = (last_day - first_day).days + 1
+    
+    breakthroughs = simulated_df['breakthrough'].sum()
+    
+    return breakthroughs, num_days, simulated_df
