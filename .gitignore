@@ -1,1 +1,8 @@
 .python-version
+venv
+.venv
+_desktop_cwm1
+data/data_1.csv
+data/data_2.csv
+data/data.csv
+.vscode
