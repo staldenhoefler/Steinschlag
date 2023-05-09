@@ -136,7 +136,7 @@ def best_distributions(df, zones=None, cols=None, distributions=None):
 
 def print_fit(fit, zone, col):
     f = fit[zone, col][1][:5]
-    print("parameters for each of the 5 best distributions:\n\n")
+    print("parameters for each of the 5 best distributions:\n")
     for dist in f.index:
         print(f"{dist}: {fit[zone, col][0][dist]}")
-    print("\n\n", f)
+    print("\n\n", f["sumsquare_error"])
