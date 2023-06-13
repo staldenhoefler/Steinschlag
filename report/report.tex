@@ -34,9 +34,21 @@
 
     \section{EDA / Datenverständnis}
     Was haben wir über die Daten gelernt bzw. was fällt auf?
+    Unsere explorative Datenanalyse (EDA) konzentrierte sich auf zwei Datensätze, die als "zone1" und "zone2" bezeichnet wurden. 
+    Beide Datensätze enthalten Informationen über das Datum, die Uhrzeit, die Masse (in kg) und die Geschwindigkeit (in m/s).
+    In "zone1" haben wir 68 Beobachtungen mit einem durchschnittlichen Gewicht von 628,63 kg und einer durchschnittlichen Geschwindigkeit von 8,79 m/s. 
+    Die Masse variiert stark, mit einem Minimum von 12 kg und einem Maximum von 3104 kg. Die Geschwindigkeit variiert weniger stark, mit Werten zwischen 3,6 und 14,1 m/s.
+    In "zone2" haben wir 32 Beobachtungen mit einem durchschnittlichen Gewicht von 101,06 kg und einer durchschnittlichen Geschwindigkeit von 37,79 m/s. 
+    Die Masse variiert hier ebenfalls stark, mit einem Minimum von 3 kg und einem Maximum von 406 kg. Die Geschwindigkeit variiert zwischen 24,9 und 46,5 m/s.
 
     \subsection{Daten säubern / Data Wrangling?}
     Müssen wir die Daten säubern?
+    Beide Datensätze enthielten fehlende Werte, die wir identifiziert und entfernt haben. In "zone1" gab es 11 Zeilen mit fehlenden Werten, während in "zone2" 3 Zeilen mit fehlenden Werten identifiziert wurden.
+    Darüber hinaus haben wir festgestellt, dass in "zone2" eine Beobachtung einen Wert von 0 kg aufwies, was in unserem Kontext nicht sinnvoll ist. 
+    Anstatt diese Beobachtung zu entfernen, haben wir beschlossen, den Wert durch den Median der Masse in "zone2" zu ersetzen. 
+    Dieser Ansatz wurde gewählt, um den Datenverlust zu minimieren, da unsere Datensätze relativ klein sind.
+    Nach der Datenbereinigung haben wir erneut deskriptive Statistiken für beide Zonen berechnet. 
+    Die Ergebnisse waren konsistent mit unseren vorherigen Beobachtungen, was darauf hindeutet, dass unsere Datenbereinigung erfolgreich war und unsere Daten nun für weitere Analysen bereit sind.
 
 
     \section{Wahrscheinlichkeitsrechnung}
